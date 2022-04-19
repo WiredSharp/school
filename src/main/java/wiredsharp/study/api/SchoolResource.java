@@ -15,8 +15,8 @@ import wiredsharp.study.model.School;
 public class SchoolResource {
    
    @GET
-   public Uni<List<School>> getAll() {
-      return School.listAll(Sort.ascending("name"));
+   public Uni<SchoolResponse> getAll() {
+      return School.<School>listAll(Sort.ascending("name")).map(SchoolResponse::Create);
    }
 }
 
