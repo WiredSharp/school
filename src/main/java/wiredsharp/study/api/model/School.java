@@ -6,12 +6,17 @@ import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 public class School {
+
+   public Long id;
    public String name;
+
+   public String getPath() { return "/api/schools/" + id; }
 
    public List<Student> students;
 
-   public School(String name, Iterable<Student> students) {
+   public School(Long id, String name, Iterable<Student> students) {
       super();
+      this.id = id;
       this.name = name;
       this.students = StreamSupport.stream(students.spliterator(), false).collect(Collectors.toList());
    }
@@ -22,7 +27,7 @@ public class School {
    }
 
    public static School from(wiredsharp.study.model.School school) {
-      return new School(school.name, StreamSupport.stream(school.students.spliterator(), false)
+      return new School(school.id, school.name, StreamSupport.stream(school.students.spliterator(), false)
          .map(Student::from).collect(Collectors.toList()));
    }
 }
