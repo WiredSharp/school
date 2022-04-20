@@ -17,4 +17,9 @@ public class Student extends PanacheEntity {
    @ManyToOne
    @JoinColumn(name="school_id", nullable = false)
    public School school;
+
+   @Override
+   public String toString() {
+      return "student " + name + " from " + school;
+   }
 }

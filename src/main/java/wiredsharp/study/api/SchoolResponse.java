@@ -6,8 +6,11 @@ import java.util.stream.StreamSupport;
 
 import javax.ws.rs.core.Response;
 
+import io.quarkus.runtime.annotations.RegisterForReflection;
+import wiredsharp.study.api.model.ErrorResponse;
 import wiredsharp.study.model.School;
 
+@RegisterForReflection
 public class SchoolResponse {
    public List<wiredsharp.study.api.model.School> schools;
    
@@ -24,7 +27,7 @@ public class SchoolResponse {
    
    public static Response Create(wiredsharp.study.model.School school) {
       if (school == null) {
-         return ErrorResponse.NotFound("no matching school");
+         return ErrorResponse.notFound("no matching school");
       } else {
          return Response.ok(wiredsharp.study.api.model.School.from(school)).build();
       }

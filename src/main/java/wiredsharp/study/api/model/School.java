@@ -1,10 +1,13 @@
 package wiredsharp.study.api.model;
 
+import io.quarkus.runtime.annotations.RegisterForReflection;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
+@RegisterForReflection
 public class School {
 
    public Long id;
@@ -25,7 +28,7 @@ public class School {
    }
 
    public static School from(wiredsharp.study.model.School school) {
-      return new School(school.id, school.name, StreamSupport.stream(school.students.spliterator(), false)
+      return new School(school.id, school.name, school.students.stream()
          .map(Student::from).collect(Collectors.toList()));
    }
 }
