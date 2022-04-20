@@ -1,4 +1,9 @@
-# school Project
+# School Project
+
+Study project for [Quarkus](https://quarkus.io)
+
+Create a simple UI and its backend to manage a School and students
+# Quarkus project
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 

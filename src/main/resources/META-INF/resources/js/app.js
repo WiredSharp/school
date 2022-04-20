@@ -31,8 +31,8 @@ function renderList(items, renderItem, listType) {
 }
 
 async function updateSchools() {
-   const schools = await getSchools();
-   const html = renderSchools(schools);
+   const response = await getSchools();
+   const html = renderSchools(response.schools);
    let app = document.querySelector('#schools');
    app.innerHTML = html;
 }
