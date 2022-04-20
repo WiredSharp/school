@@ -10,8 +10,6 @@ public class School {
    public Long id;
    public String name;
 
-   public String getPath() { return "/api/schools/" + id; }
-
    public List<Student> students;
 
    public School(Long id, String name, Iterable<Student> students) {

@@ -10,13 +10,13 @@ async function getSchools() {
 }
 
 function renderStudent(student) {
-   return `<div class="student">${student.name}</div>`
+   return `<div class="student"><a href="${student.link}">${student.name}</a></div>`
 }
 
 function renderSchool(school) {
    const students = renderList(school.students, renderStudent, 'ol')
    return `<div class="school">
-      <h2>${school.name}</h2>
+      <h2><a href="${school.link}">${school.name}</a></h2>
       ${students}
    </div>`;
 }

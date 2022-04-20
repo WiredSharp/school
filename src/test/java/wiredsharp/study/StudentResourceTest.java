@@ -8,12 +8,12 @@ import org.junit.jupiter.api.Test;
 import static io.restassured.RestAssured.given;
 
 @QuarkusTest
-public class SchoolResourceTest {
+public class StudentResourceTest {
 
     @Test
-    public void testSchoolApiEndpoint() {
+    public void testGetAll() {
         given()
-          .when().get("/api/schools")
+          .when().get("/api/students")
           .then()
              .statusCode(200)
              .contentType(ContentType.JSON);
@@ -22,7 +22,7 @@ public class SchoolResourceTest {
     @Test
     public void testGetById() {
         given()
-          .when().get("/api/schools/1")
+          .when().get("/api/students/11")
           .then()
              .statusCode(200)
              .contentType(ContentType.JSON);
@@ -31,7 +31,7 @@ public class SchoolResourceTest {
     @Test
     public void testGetByUnknownId() {
         given()
-          .when().get("/api/schools/999999")
+          .when().get("/api/students/999999")
           .then()
              .statusCode(404)
              .contentType(ContentType.JSON);

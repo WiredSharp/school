@@ -5,8 +5,6 @@ public class Student {
    public Long id;
    public String name;
 
-   public String getPath() { return "/api/students/" + id; }
-
    public Student(Long id, String name) {
       super();
       this.id = id;
